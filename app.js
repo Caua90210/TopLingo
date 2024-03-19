@@ -1,39 +1,39 @@
-const traduzirTexto = document.querySelector("#traduzirTexto");
-const traducaoTexto = document.querySelector("#traducaoTexto");
-const btnTradutor = document.querySelector("#btnTradutor");
-const selects = document.querySelectorAll("select");
+const traduzirTexto = document.querySelector("#traduzirTexto")
+const traducaoTexto = document.querySelector("#traducaoTexto")
+const btnTradutor = document.querySelector("#btnTradutor")
+const selects = document.querySelectorAll("select")
 
 //Países disponíveis para tradução
 const paises = {
     "pt-BR": "Português",
     "en-US": "Inglês"
-};
+}
 
 selects.forEach((tag) => {
 
     for (let pais in paises) {
 
-        let selected = "";
+        let selected = ""
 
         if(tag.classList.contains("selectFrom") && pais === "pt-BR") {
-            selected = "selected";
+            selected = "selected"
 
         }else if(tag.classList.contains("selectTo") && pais === "en-US") {
-            selected = "selected";
+            selected = "selected"
         }
 
-        const option = `<option value = "${pais}" ${selected} > ${paises[pais]} </option>`;
+        const option = `<option value="${pais}"${selected}>${paises[pais]}</option>`
 
-        tag.insertAdjacentHTML("beforeend", option);
+        tag.insertAdjacentHTML("beforeend", option)
     }
 })
 
 btnTradutor.addEventListener("click", () => {
     
     if(traduzirTexto.value) {
-        loadTranslation();
+        loadTranslation()
     }else {
-        traducaoTexto.value = "";
+        traducaoTexto.value = ""
     }
 })
 
@@ -45,6 +45,6 @@ function loadTranslation() {
 
     .then((res) => res.json())
     .then((data) => {
-        traducaoTexto.value = data.responseData.textoTraduzido
+        traducaoTexto.value = data.responseData.translatedText
     })
 }

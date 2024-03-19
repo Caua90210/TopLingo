@@ -2,6 +2,14 @@ const traduzirTexto = document.querySelector("#traduzirTexto")
 const traducaoTexto = document.querySelector("#traducaoTexto")
 const btnTradutor = document.querySelector("#btnTradutor")
 const selects = document.querySelectorAll("select")
+const btnToggleTheme = document.getElementById('btnToggleTheme');
+
+const chk = document.getElementById('chk')
+
+chk.addEventListener('change', () => {
+  document.body.classList.toggle('dark')
+})
+
 
 //Países disponíveis para tradução
 const paises = {

@@ -5,48 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-     <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            clifford: '#da373d',
-            roxo: '#5B0B9B'
-          }
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                        roxo: '#5B0B9B'
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
+    </script>
+    <style>
+        .custom-input {
+            position: relative;
+        }
+        .custom-input img {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            width: 36px; 
+            height: auto;
+        }
+        .custom-input input {
+            padding-right: 30px; 
+        }
+    </style>
     <title>TopLingo</title>
 </head>
 <body>
-    <div class="w-16  h-screen flex justify-start bg-roxo absolute"></div>
+    <div class="w-16 h-screen flex justify-start bg-roxo absolute"></div>
     <main>
         <h1 class="flex justify-center pt-10 text-roxo font-bold text-[96px]">
             TopLingo
         </h1>
-    
+        
         <div class="flex flex-col items-center pt-40">
-        <Input class="mb-14 w-2/6 h-16  border-4 border-white border-b-indigo-500" placeholder="Digite o texto em portugues">
-        </Input>
-        
-
-        <Input class="w-2/6 h-16 border-4 border-white border-b-indigo-500" placeholder="Digite o texto em inglês">
-    
-        </Input>
-
-        <button class="bg-roxo py-6 px-12 mt-16 text-white font-bold">
-            TRADUZIR
-        </button>
+            <div class="custom-input mb-14 w-2/6 relative">
+                <input class="w-full h-16 border-4 border-white border-b-indigo-500 pr-8" placeholder="Digite o texto em português">
+                <img src="./img/br.png" alt="Ícone" />
+            </div>
+            <div class="custom-input w-2/6 relative">
+                <input class="w-full h-16 border-4 border-white border-b-indigo-500 pr-8" placeholder="Digite o texto em inglês">
+                <img src="./img/eua.png" alt="Ícone" />
+            </div>
+            <button class="bg-roxo py-4 px-12 mt-16 text-white font-bold">
+                TRADUZIR
+            </button>
         </div>
-        
-       
-
-    
-       
-            <img src="./img/lua.png" alt="Modo Escuro">
     </main>
-    
-
 </body>
 </html>

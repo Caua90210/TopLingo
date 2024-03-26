@@ -14,7 +14,12 @@ chk.addEventListener('change', () => {
 //Países disponíveis para tradução
 const paises = {
     "pt-BR": "Português",
-    "en-US": "Inglês"
+    "en-US": "Inglês",
+    "fr-fr": "Francês",
+    "es-ES": "Espanhol",
+    "de-DE": "Alemão",
+    "ja-JP": "Japonês",
+    "nn-NO": "Norueguês"
 }
 
 selects.forEach((tag) => {
@@ -28,6 +33,8 @@ selects.forEach((tag) => {
 
         }else if(tag.classList.contains("selectTo") && pais === "en-US") {
             selected = "selected"
+        }if(tag.classList.contains("selecTo") && pais == "fr-fr"){
+            selected = "selected"
         }
 
         const option = `<option value="${pais}"${selected}>${paises[pais]}</option>`
@@ -36,6 +43,8 @@ selects.forEach((tag) => {
     }
 })
 
+
+
 btnTradutor.addEventListener("click", () => {
     
     if(traduzirTexto.value) {
@@ -43,6 +52,7 @@ btnTradutor.addEventListener("click", () => {
     }else {
         traducaoTexto.value = ""
     }
+    
 })
 
 function loadTranslation() {
@@ -56,3 +66,18 @@ function loadTranslation() {
         traducaoTexto.value = data.responseData.translatedText
     })
 }
+
+btnToggleVoice.addEventListener('click', () => {
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+    recognition.lang = 'pt-BR';
+    recognition.lang = 'fr-FR';
+    recognition.lang = 'en-US';
+    
+
+    recognition.onresult = (event) => {
+        const speechResult = event.results[0][0].transcript;
+        traduzirTexto.value = speechResult;
+    };
+
+    recognition.start();
+});

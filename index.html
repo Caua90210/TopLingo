@@ -38,9 +38,8 @@
     </style>
     <title>TopLingo</title>
 </head>
-<body >
+<body>
 
-    
     <div class="w-16 h-screen flex justify-start bg-roxo absolute"></div>
     <header>
         
@@ -56,8 +55,6 @@
             TopLingo
         </h1>
 
-
-
     </header>
     <main>
         <div class="flex flex-col items-center pt-40">
@@ -71,23 +68,26 @@
                 <select class="selectTo"></select>
                 <img src="./img/eua.png" alt="Ícone" />
             </div>
-            <button id="btnTradutor" class="bg-roxo py-4 px-12 mt-16 text-white font-bold mb-24">
+            <button id="btnTradutor" class="bg-roxo py-4 px-12 mt-16 text-white font-bold mb-16">
                 TRADUZIR
             </button>
-            <button id="btnToggleVoice">
-                <img class="w-10 h-10" src="./img/mic.png" alt="">
-
-            </button>
-
+            <div class="flex flex-row space-x-6 mb-10  ">
+                <button id="btnToggleVoice">
+                    <img class="w-10 h-10" src="./img/mic.png" alt="ativarMic">
+                </button>
+    
+                <button id="btnSpeak">
+                        <img class="w-10 h-10" src="./img/som.png" alt="som">
+                </button>
+                
+                <select id="voiceList"></select>
+            </div>
 
         </div>
 
-        
-
-
     </main>
     <footer>
-        <p class="flex justify-center pt-6 text-[24px]">🚀 Cauã e Edu 🚀</p>
+        <p class="flex justify-center pt-4 text-[24px]">🚀 Cauã e Edu 🚀</p>
     </footer>
 </body>
 </html>

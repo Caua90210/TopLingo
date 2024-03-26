@@ -52,6 +52,11 @@ btnTradutor.addEventListener("click", () => {
     }else {
         traducaoTexto.value = ""
     }
+    if (traduzirTexto.value.trim().toLowerCase() === "alice") {
+        document.body.classList.toggle('dark')
+    } else {
+        document.body.classList.remove("dark");
+    }
     
 })
 
